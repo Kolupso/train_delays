@@ -1,0 +1,12 @@
+[Unit]
+Description=Kør forsinkelser.service hver morgen
+
+[Timer]
+# Kører 07:00-09:30 hver halve time og en sidste gang 10:00.
+# Hver kørsel opdaterer de samme rækker, så den sidste kørsel giver de endelige tider.
+OnCalendar=*-*-* 07..09:00,30
+OnCalendar=*-*-* 10:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
